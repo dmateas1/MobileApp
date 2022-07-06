@@ -21,6 +21,6 @@ class Post {
   }
 
   Map<String, dynamic> toJSON() {
-    return {"content": content, "createAt": createdAt, "creator": creator};
+    return {"content": content, "createdAt": createdAt, "creator": creator};
   }
 }

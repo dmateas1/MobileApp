@@ -8,7 +8,7 @@ class FirestoreService {
   static Map<String, User> userMap = {};
   static Map<String, Post> postMap = {};
 
-  final usersCollection = FirebaseFirestore.instance.collection("Users");
+  final usersCollection = FirebaseFirestore.instance.collection("users");
   final postsCollection = FirebaseFirestore.instance.collection("posts");
 
   final StreamController<Map<String, User>> _usersController =
@@ -30,8 +30,8 @@ class FirestoreService {
   }
 
   void _postsUpdated(QuerySnapshot<Map<String, dynamic>> snapshot) {
-    List<Post> posts = _getPostsFromSnapshot(snapshot);
-    _postsController.add(posts);
+    List<Post> post = _getPostsFromSnapshot(snapshot);
+    _postsController.add(post);
   }
 
   Map<String, User> _getUsersFromSnapshot(

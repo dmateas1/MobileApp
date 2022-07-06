@@ -15,6 +15,6 @@ class _State extends State<Driver> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    return _auth.currentUser == null ? Authentication() : HomePage();
+    return _auth.currentUser == null ? Authentication() : Authentication();
   }
 }

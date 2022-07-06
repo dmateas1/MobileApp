@@ -145,13 +145,12 @@ class _RegisterFormState extends State<RegisterForm> {
                 email: _email.text, password: _password.text);
 
         _db
-            .collection("Users")
+            .collection("users")
             .doc(registerResponse.user!.uid)
             .set({
-              "Username": _username.text,
-              "Bio": _bio.text,
-              "Email": _email.text,
-              "createdAt": Timestamp.now()
+              "Name": _username.text,
+              "Created": Timestamp.now(),
+              "Bio": _bio.text
             })
             .then((value) => snackBar(context, "User Registered Successfully."))
             .catchError((error) =>

@@ -58,8 +58,11 @@ class _HomeState extends State<HomePage> {
                                                         .userMap[
                                                     posts[index].creator]!)));
                                   },
-                                  child: Text(FirestoreService
-                                      .userMap[posts[index].creator]!.name)),
+                                  child: Text(FirestoreService.userMap
+                                          .containsKey(posts[index].creator)
+                                      ? FirestoreService
+                                          .userMap[posts[index].creator]!.name
+                                      : "error")),
                               subtitle: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
