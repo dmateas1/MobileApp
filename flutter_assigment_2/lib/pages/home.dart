@@ -1,6 +1,8 @@
+import 'package:flutter_assigment_2/forms/registerform.dart';
 import 'package:flutter_assigment_2/model/post.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
 import 'package:flutter/material.dart';
+import 'package:flutter_assigment_2/pages/conversations.dart';
 import 'package:flutter_assigment_2/pages/profile.dart';
 import 'package:flutter_assigment_2/services/firestore_service.dart';
 import 'package:flutter_assigment_2/widgets/loading.dart';
@@ -20,9 +22,21 @@ class _HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(" Home  - Let's Talk!"),
-        ),
+        appBar: AppBar(title: const Text(" Home  - Let's Talk!"), actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ConversationsPage()));
+              },
+              icon: const Icon(Icons.message)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pop(
+                    MaterialPageRoute(builder: (context) => RegisterForm()));
+              },
+              icon: const Icon(Icons.logout))
+        ]),
         floatingActionButton: FloatingActionButton(
           onPressed: _showPostFeild,
           child: const Icon(Icons.post_add),
